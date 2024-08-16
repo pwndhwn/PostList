@@ -58,9 +58,7 @@ class HomeViewController: BaseViewController {
             [weak self] indexPath in
             guard let self = self else { return }
             self.tableView.deselectRow(at: indexPath, animated: false)
-            if let cell = self.tableView.cellForRow(at: indexPath) {
-                self.tableView.reloadRows(at: [indexPath], with: .none)
-            }
+            self.tableView.reloadRows(at: [indexPath], with: .none)
         }.disposed(by: bag)
     }
 }

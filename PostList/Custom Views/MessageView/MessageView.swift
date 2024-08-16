@@ -42,7 +42,8 @@ class MessageView: UIView {
         containerView.autoresizingMask = [.flexibleHeight,.flexibleWidth]
     }
     func showOnView(message:String,theme:Theme){
-        parentView = UIApplication.shared.keyWindow
+        parentView = UIApplication.shared.connectedScenes.compactMap {($0 as? UIWindowScene)?.keyWindow}
+    .last
         parentView.addSubview(self)
         addMaskView()
         messageLabel.text = message
