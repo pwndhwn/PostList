@@ -17,7 +17,7 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad()
     {
         self.tabBarController?.navigationItem.hidesBackButton = true
-        tableView.register( UINib(nibName: "PostListTableViewCell", bundle: nil), forCellReuseIdentifier: "PostListTableViewCell" )
+        tableView.register( UINib(nibName: Constants.Cell_ID_PostListTableViewCell, bundle: nil), forCellReuseIdentifier: Constants.Cell_ID_PostListTableViewCell )
         viewModel = HomeViewModel(apiManager: APIManager())
         super.viewDidLoad()
         setupBindings()
@@ -26,7 +26,7 @@ class HomeViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.title = "List"
+        self.tabBarController?.title = Constants.Page_Title_List
     }
     
     func setupBindings() {
@@ -36,7 +36,7 @@ class HomeViewController: BaseViewController {
         viewModel
             .postDetails
             .observe(on: MainScheduler.instance)
-            .bind(to: tableView.rx.items(cellIdentifier: "PostListTableViewCell", cellType: PostListTableViewCell.self)) { row, model, cell in
+            .bind(to: tableView.rx.items(cellIdentifier: Constants.Cell_ID_PostListTableViewCell, cellType: PostListTableViewCell.self)) { row, model, cell in
                 let cellViewModel = PostListCellViewModel(postDetail: model)
                 cell.viewModel = cellViewModel
                 cell.updateFavoriteStatus(isFavorite: model.isFavorite)

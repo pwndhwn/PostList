@@ -17,14 +17,14 @@ class FavoriteListViewController: BaseViewController {
     override func viewDidLoad()
     {
         
-        tableView.register( UINib(nibName: "PostListTableViewCell", bundle: nil), forCellReuseIdentifier: "PostListTableViewCell" )
+        tableView.register( UINib(nibName: Constants.Cell_ID_PostListTableViewCell, bundle: nil), forCellReuseIdentifier: Constants.Cell_ID_PostListTableViewCell )
         viewModel = FavouriteListViewModel()
         super.viewDidLoad()
         setupBindings()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.title = "Favorite List"
+        self.tabBarController?.title = Constants.Page_Title_FavoriteList
         guard let viewModel = viewModel as? FavouriteListViewModel else { return }
         viewModel.requestMyFavoritePosts()
     }
@@ -36,7 +36,7 @@ class FavoriteListViewController: BaseViewController {
         viewModel
             .posts
             .observe(on: MainScheduler.instance)
-            .bind(to: tableView.rx.items(cellIdentifier: "PostListTableViewCell", cellType: PostListTableViewCell.self)) { row, model, cell in
+            .bind(to: tableView.rx.items(cellIdentifier: Constants.Cell_ID_PostListTableViewCell, cellType: PostListTableViewCell.self)) { row, model, cell in
                 let cellViewModel = PostListCellViewModel(postDetail: model)
                 cell.viewModel = cellViewModel
                 cell.hideFavoriteIcon()
