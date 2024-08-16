@@ -42,15 +42,15 @@ class HomeViewModel:BaseViewModel {
             case .success(let returnJson) :
                 if let posts = try? JSONDecoder().decode([Post].self, from: try! returnJson.rawData()) {
                     let realm = try! Realm()
-                    for post in posts {
-                        
-                        let postDetail = PostDetail()
-                        postDetail.id = post.id
-                        postDetail.title = post.title
-                        postDetail.body = post.body
-                        postDetail.userId = post.userId
-                        try! realm.write {
+                    try! realm.write {
+                        for post in posts {
+                            let postDetail = PostDetail()
+                            postDetail.id = post.id
+                            postDetail.title = post.title
+                            postDetail.body = post.body
+                            postDetail.userId = post.userId
                             realm.add(postDetail)
+                            
                         }
                     }
                     DispatchQueue.main.async {

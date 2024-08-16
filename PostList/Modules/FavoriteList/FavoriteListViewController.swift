@@ -16,7 +16,7 @@ class FavoriteListViewController: BaseViewController {
     
     override func viewDidLoad()
     {
-        self.tabBarController?.title = "Favorite List"
+        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.Basic_Cell_Identifier)
         viewModel = FavouriteListViewModel()
         super.viewDidLoad()
@@ -24,6 +24,7 @@ class FavoriteListViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.title = "Favorite List"
         guard let viewModel = viewModel as? FavouriteListViewModel else { return }
         viewModel.requestMyFavoritePosts()
     }

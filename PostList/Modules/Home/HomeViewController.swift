@@ -16,7 +16,6 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad()
     {
-        self.tabBarController?.title = "Post List"
         self.tabBarController?.navigationItem.hidesBackButton = true
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.Basic_Cell_Identifier)
         viewModel = HomeViewModel(apiManager: APIManager())
@@ -24,6 +23,10 @@ class HomeViewController: BaseViewController {
         setupBindings()
         guard let viewModel = viewModel as? HomeViewModel else { return }
         viewModel.requestAllPosts()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.title = "List"
     }
     
     func setupBindings() {
