@@ -13,11 +13,12 @@ import UIKit
 class LoginViewController : UIViewController {
     
     //Create textfield
-    lazy var textFiledEmail:UITextField = {
+    lazy var textFieldEmail:UITextField = {
         let textField = UITextField()
         textField.placeholder = "Enter Email"
         textField.borderStyle = .roundedRect
         textField.keyboardType = .emailAddress
+        textField.text = "abc@gmail.com"
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -26,6 +27,7 @@ class LoginViewController : UIViewController {
         let textField = UITextField()
         textField.placeholder = "Enter Password"
         textField.borderStyle = .roundedRect
+        textField.text = "111111111"
         textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -52,42 +54,38 @@ class LoginViewController : UIViewController {
     
     private func setupUI() {
         self.view.backgroundColor = .white
-        self.view.addSubview(textFiledEmail)
+        self.view.addSubview(textFieldEmail)
         self.view.addSubview(textFieldPassword)
         self.view.addSubview(btnLogin)
         
         NSLayoutConstraint.activate([
-            textFiledEmail.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor,constant: 20),
-            textFiledEmail.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor,constant: -20),
-            textFiledEmail.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor,constant: 20),
+            textFieldEmail.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor,constant: 20),
+            textFieldEmail.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor,constant: -20),
+            textFieldEmail.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor,constant: 20),
             textFieldPassword.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor,constant: 20),
             textFieldPassword.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor,constant: -20),
-            textFieldPassword.topAnchor.constraint(equalTo: textFiledEmail.bottomAnchor,constant: 20),
+            textFieldPassword.topAnchor.constraint(equalTo: textFieldEmail.bottomAnchor,constant: 20),
             btnLogin.topAnchor.constraint(equalTo: textFieldPassword.bottomAnchor,constant: 20),
-            btnLogin.widthAnchor.constraint(equalTo: textFiledEmail.widthAnchor),
+            btnLogin.widthAnchor.constraint(equalTo: textFieldEmail.widthAnchor),
             btnLogin.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
         ])
         
     }
     
     private func createObservables() {
-        textFiledEmail.rx.text.map({$0 ?? ""}).bind(to: viewModel.email).disposed(by: bag)
+        textFieldEmail.rx.text.map({$0 ?? ""}).bind(to: viewModel.email).disposed(by: bag)
         textFieldPassword.rx.text.map({$0 ?? ""}).bind(to: viewModel.password).disposed(by: bag)
         
         viewModel.isValidInput.bind(to: btnLogin.rx.isEnabled).disposed(by: bag)
         viewModel.isValidInput.subscribe( onNext: { [weak self] isValid in
-            
-            self?.btnLogin.backgroundColor = isValid ? .systemBlue :.red
+            self?.btnLogin.backgroundColor = isValid ? .systemBlue :.lightGray
         }).disposed(by: bag)
     }
     
     
     @objc func onTapBtnLogin() {
-        
         let tabBarController = UIStoryboard(name: Constants.Storyboard_Main, bundle: .main).instantiateViewController(identifier: "TabbarController")
-        self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.pushViewController(tabBarController, animated: true)
-        
     }
     
 }

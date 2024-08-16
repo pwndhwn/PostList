@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  PostList
 //
-//  Created by Pawan Kumar Dhawan on 28/04/22.
+//  Created by Pawan Kumar Dhawan on 14/08/24.
 //
 
 import UIKit
@@ -16,6 +16,8 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad()
     {
+        self.tabBarController?.title = "Post List"
+        self.tabBarController?.navigationItem.hidesBackButton = true
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.Basic_Cell_Identifier)
         viewModel = HomeViewModel(apiManager: APIManager())
         super.viewDidLoad()
