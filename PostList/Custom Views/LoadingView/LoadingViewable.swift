@@ -14,10 +14,10 @@ protocol loadingViewable {
 }
 extension loadingViewable where Self : UIViewController {
     func startAnimating(){
-        let animateLoading = loadingView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+        let animateLoading = LoadingView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
         view.addSubview(animateLoading)
         view.bringSubviewToFront(animateLoading)
-        animateLoading.restorationIdentifier = "loadingView"
+        animateLoading.restorationIdentifier = "LoadingView"
         animateLoading.center = view.center
         animateLoading.loadingViewMessage = "Loading"
         animateLoading.cornerRadius = 15
@@ -26,7 +26,7 @@ extension loadingViewable where Self : UIViewController {
     }
     func stopAnimating() {
         for item in view.subviews
-            where item.restorationIdentifier == "loadingView" {
+            where item.restorationIdentifier == "LoadingView" {
                 UIView.animate(withDuration: 0.3, animations: {
                     item.alpha = 0
                 }) { (_) in

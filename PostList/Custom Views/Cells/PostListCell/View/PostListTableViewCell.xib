@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostListTableViewCell" rowHeight="5" id="k2u-oi-gJu" customClass="PostListTableViewCell" customModule="PostList" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k2u-oi-gJu" id="dFd-Oq-MQ0">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label1" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qfr-TU-A9t">
+                        <rect key="frame" x="0.0" y="0.0" width="340" height="25"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" text="Label1" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="k32-ff-aUe">
+                        <rect key="frame" x="10" y="35" width="355" height="30"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T9B-C3-TKt">
+                        <rect key="frame" x="340" y="13" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="0K6-wN-snB"/>
+                            <constraint firstAttribute="width" constant="35" id="hzz-r6-94v"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="T9B-C3-TKt" firstAttribute="centerY" secondItem="dFd-Oq-MQ0" secondAttribute="centerY" id="0F6-pw-Emy"/>
+                    <constraint firstAttribute="trailing" secondItem="k32-ff-aUe" secondAttribute="trailing" constant="10" id="1Pg-ZI-g1Z"/>
+                    <constraint firstItem="qfr-TU-A9t" firstAttribute="leading" secondItem="dFd-Oq-MQ0" secondAttribute="leadingMargin" id="2II-Ol-j09"/>
+                    <constraint firstItem="qfr-TU-A9t" firstAttribute="top" secondItem="dFd-Oq-MQ0" secondAttribute="topMargin" id="WNJ-3F-qF7"/>
+                    <constraint firstItem="k32-ff-aUe" firstAttribute="top" secondItem="qfr-TU-A9t" secondAttribute="bottom" constant="5" id="Xko-k2-tSp"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="qfr-TU-A9t" secondAttribute="trailing" constant="45" id="cKs-Mh-0im"/>
+                    <constraint firstAttribute="trailing" secondItem="T9B-C3-TKt" secondAttribute="trailing" id="gDF-ic-Phv"/>
+                    <constraint firstItem="qfr-TU-A9t" firstAttribute="top" secondItem="dFd-Oq-MQ0" secondAttribute="topMargin" constant="5" id="jZP-bu-fCU"/>
+                    <constraint firstAttribute="bottom" secondItem="k32-ff-aUe" secondAttribute="bottom" constant="15" id="kEt-NS-kgZ"/>
+                    <constraint firstItem="k32-ff-aUe" firstAttribute="leading" secondItem="dFd-Oq-MQ0" secondAttribute="leading" constant="5" id="rRG-wH-c6r"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="detailLabel" destination="k32-ff-aUe" id="rWG-Ph-A8V"/>
+                <outlet property="favoriteButton" destination="T9B-C3-TKt" id="gS9-X4-q5c"/>
+                <outlet property="titleLabel" destination="qfr-TU-A9t" id="Bst-AP-1CP"/>
+            </connections>
+            <point key="canvasLocation" x="-750.38167938931292" y="-538.02816901408448"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
+    </resources>
+</document>

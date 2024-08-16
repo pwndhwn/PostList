@@ -61,13 +61,16 @@ class LoginViewController : UIViewController {
         NSLayoutConstraint.activate([
             textFieldEmail.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor,constant: 20),
             textFieldEmail.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor,constant: -20),
-            textFieldEmail.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor,constant: 20),
+            textFieldEmail.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor,constant: 40),
             textFieldPassword.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor,constant: 20),
             textFieldPassword.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor,constant: -20),
             textFieldPassword.topAnchor.constraint(equalTo: textFieldEmail.bottomAnchor,constant: 20),
-            btnLogin.topAnchor.constraint(equalTo: textFieldPassword.bottomAnchor,constant: 20),
+            btnLogin.topAnchor.constraint(equalTo: textFieldPassword.bottomAnchor,constant: 40),
             btnLogin.widthAnchor.constraint(equalTo: textFieldEmail.widthAnchor),
-            btnLogin.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+            btnLogin.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            textFieldEmail.heightAnchor.constraint(equalToConstant: 40),
+            textFieldPassword.heightAnchor.constraint(equalToConstant: 40),
+            btnLogin.heightAnchor.constraint(equalToConstant: 40)
         ])
         
     }

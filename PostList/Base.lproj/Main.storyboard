@@ -62,7 +62,7 @@
                             <constraint firstItem="kZa-9U-mwF" firstAttribute="top" secondItem="6gk-gC-Isk" secondAttribute="top" id="qR8-hY-j2h"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorite Posts" image="star" catalog="system" id="YAb-Yc-zyG"/>
+                    <tabBarItem key="tabBarItem" title="Favorite Posts" image="heart" catalog="system" id="YAb-Yc-zyG"/>
                     <navigationItem key="navigationItem" title="Home" id="Y1k-gK-e9e"/>
                     <connections>
                         <outlet property="tableView" destination="kZa-9U-mwF" id="Vd9-Xg-wnd"/>
@@ -93,8 +93,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart" catalog="system" width="32" height="32"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
-        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

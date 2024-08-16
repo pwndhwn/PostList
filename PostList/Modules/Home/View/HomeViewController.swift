@@ -17,7 +17,7 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad()
     {
         self.tabBarController?.navigationItem.hidesBackButton = true
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.Basic_Cell_Identifier)
+        tableView.register( UINib(nibName: "PostListTableViewCell", bundle: nil), forCellReuseIdentifier: "PostListTableViewCell" )
         viewModel = HomeViewModel(apiManager: APIManager())
         super.viewDidLoad()
         setupBindings()
@@ -36,9 +36,10 @@ class HomeViewController: BaseViewController {
         viewModel
             .postDetails
             .observe(on: MainScheduler.instance)
-            .bind(to: tableView.rx.items(cellIdentifier: Constants.Basic_Cell_Identifier, cellType: UITableViewCell.self)) { row, model, cell in
-                cell.textLabel?.text = model.title
-                cell.accessoryType = model.isFavorite ? .checkmark : .none
+            .bind(to: tableView.rx.items(cellIdentifier: "PostListTableViewCell", cellType: PostListTableViewCell.self)) { row, model, cell in
+                let cellViewModel = PostListCellViewModel(postDetail: model)
+                cell.viewModel = cellViewModel
+                cell.updateFavoriteStatus(isFavorite: model.isFavorite)
             }.disposed(by: bag)
         
         tableView.rx.modelSelected(PostDetail.self)
@@ -58,11 +59,7 @@ class HomeViewController: BaseViewController {
             guard let self = self else { return }
             self.tableView.deselectRow(at: indexPath, animated: false)
             if let cell = self.tableView.cellForRow(at: indexPath) {
-                if cell.accessoryType == .checkmark {
-                    cell.accessoryType = .none
-                } else {
-                    cell.accessoryType = .checkmark
-                }
+                self.tableView.reloadRows(at: [indexPath], with: .none)
             }
         }.disposed(by: bag)
     }

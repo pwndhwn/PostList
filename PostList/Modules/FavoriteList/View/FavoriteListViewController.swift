@@ -17,7 +17,7 @@ class FavoriteListViewController: BaseViewController {
     override func viewDidLoad()
     {
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.Basic_Cell_Identifier)
+        tableView.register( UINib(nibName: "PostListTableViewCell", bundle: nil), forCellReuseIdentifier: "PostListTableViewCell" )
         viewModel = FavouriteListViewModel()
         super.viewDidLoad()
         setupBindings()
@@ -36,20 +36,15 @@ class FavoriteListViewController: BaseViewController {
         viewModel
             .posts
             .observe(on: MainScheduler.instance)
-            .bind(to: tableView.rx.items(cellIdentifier: Constants.Basic_Cell_Identifier, cellType: UITableViewCell.self)) { row, model, cell in
-                cell.textLabel?.text = model.title
-                cell.detailTextLabel?.text = model.body
+            .bind(to: tableView.rx.items(cellIdentifier: "PostListTableViewCell", cellType: PostListTableViewCell.self)) { row, model, cell in
+                let cellViewModel = PostListCellViewModel(postDetail: model)
+                cell.viewModel = cellViewModel
+                cell.hideFavoriteIcon()
             }.disposed(by: bag)
         
         tableView.rx.modelSelected(PostDetail.self)
             .subscribe(onNext: { post in })
             .disposed(by: bag)
-        
-        tableView.rx.itemSelected.bind {
-            [weak self] indexPath in
-            guard let self = self else { return }
-            self.tableView.deselectRow(at: indexPath, animated: false)
-        }.disposed(by: bag)
     }
 }
 
