@@ -9,5 +9,9 @@ target 'PostList' do
   pod 'RxCocoa'
   pod 'SwiftyJSON'
   pod 'RealmSwift'
-
+  
+  target 'PostListTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
 end

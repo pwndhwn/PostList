@@ -44,13 +44,7 @@ class HomeViewController: BaseViewController {
         
         tableView.rx.modelSelected(PostDetail.self)
             .subscribe(onNext: { post in
-                let realm = try! Realm()
-                let results = realm.objects(PostDetail.self).filter("id = \(post.id ?? 0)")
-                if let post = results.first {
-                    try! realm.write {
-                        post.isFavorite = !post.isFavorite
-                    }
-                }
+                viewModel.updateIsFavoriteStatus(post)
             })
             .disposed(by: bag)
         

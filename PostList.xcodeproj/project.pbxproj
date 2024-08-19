@@ -36,8 +36,22 @@
 		1F9BC8BC2C6F562600E7D023 /* PostListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9BC8BA2C6F562600E7D023 /* PostListTableViewCell.swift */; };
 		1F9BC8BE2C6F562E00E7D023 /* PostListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9BC8BD2C6F562E00E7D023 /* PostListCellViewModel.swift */; };
 		1F9BC8C02C6F6A4300E7D023 /* PostListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F9BC8BF2C6F6A4300E7D023 /* PostListTableViewCell.xib */; };
+		1F9BC8D42C73702900E7D023 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9BC8D32C73702900E7D023 /* HomeViewModelTests.swift */; };
+		1F9BC8D62C73709800E7D023 /* MockApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9BC8D52C73709800E7D023 /* MockApiManager.swift */; };
+		1F9BC8DA2C73723900E7D023 /* PostList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F9BC8D92C73723900E7D023 /* PostList.json */; };
 		3D3EE086F154D7629C271A0B /* Pods_PostList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C42D5928986978054F5B181E /* Pods_PostList.framework */; };
+		C7304DE8AEF8FA50DBB879DF /* Pods_PostListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE239443A98A1DA20F2D00B /* Pods_PostListTests.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1F9BC8CE2C73700200E7D023 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F9BC85D2C6CF22F00E7D023 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F9BC8642C6CF22F00E7D023;
+			remoteInfo = PostList;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1F9BC8652C6CF22F00E7D023 /* PostList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,9 +85,16 @@
 		1F9BC8BA2C6F562600E7D023 /* PostListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListTableViewCell.swift; sourceTree = "<group>"; };
 		1F9BC8BD2C6F562E00E7D023 /* PostListCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListCellViewModel.swift; sourceTree = "<group>"; };
 		1F9BC8BF2C6F6A4300E7D023 /* PostListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostListTableViewCell.xib; sourceTree = "<group>"; };
+		1F9BC8CA2C73700100E7D023 /* PostListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F9BC8D32C73702900E7D023 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		1F9BC8D52C73709800E7D023 /* MockApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiManager.swift; sourceTree = "<group>"; };
+		1F9BC8D92C73723900E7D023 /* PostList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PostList.json; sourceTree = "<group>"; };
 		841091DD50FD22197A945E97 /* Pods-PostList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostList.release.xcconfig"; path = "Target Support Files/Pods-PostList/Pods-PostList.release.xcconfig"; sourceTree = "<group>"; };
 		87ED00191009CDB61B5BFEE8 /* Pods-PostList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostList.debug.xcconfig"; path = "Target Support Files/Pods-PostList/Pods-PostList.debug.xcconfig"; sourceTree = "<group>"; };
+		8BE239443A98A1DA20F2D00B /* Pods_PostListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8C175562F7CEF052293A508 /* Pods-PostListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostListTests.release.xcconfig"; path = "Target Support Files/Pods-PostListTests/Pods-PostListTests.release.xcconfig"; sourceTree = "<group>"; };
 		C42D5928986978054F5B181E /* Pods_PostList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB0C6CBE0C13A112F8D8E378 /* Pods-PostListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostListTests.debug.xcconfig"; path = "Target Support Files/Pods-PostListTests/Pods-PostListTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +106,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1F9BC8C72C73700100E7D023 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7304DE8AEF8FA50DBB879DF /* Pods_PostListTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -92,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				1F9BC8672C6CF22F00E7D023 /* PostList */,
+				1F9BC8CB2C73700200E7D023 /* PostListTests */,
 				1F9BC8662C6CF22F00E7D023 /* Products */,
 				28ABA61455267C3970EBAA87 /* Pods */,
 				9E01B78E3D104419307CF9A8 /* Frameworks */,
@@ -102,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				1F9BC8652C6CF22F00E7D023 /* PostList.app */,
+				1F9BC8CA2C73700100E7D023 /* PostListTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -311,11 +342,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		1F9BC8CB2C73700200E7D023 /* PostListTests */ = {
+			isa = PBXGroup;
+			children = (
+				1F9BC8D92C73723900E7D023 /* PostList.json */,
+				1F9BC8D32C73702900E7D023 /* HomeViewModelTests.swift */,
+				1F9BC8D52C73709800E7D023 /* MockApiManager.swift */,
+			);
+			path = PostListTests;
+			sourceTree = "<group>";
+		};
 		28ABA61455267C3970EBAA87 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				87ED00191009CDB61B5BFEE8 /* Pods-PostList.debug.xcconfig */,
 				841091DD50FD22197A945E97 /* Pods-PostList.release.xcconfig */,
+				CB0C6CBE0C13A112F8D8E378 /* Pods-PostListTests.debug.xcconfig */,
+				A8C175562F7CEF052293A508 /* Pods-PostListTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -324,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				C42D5928986978054F5B181E /* Pods_PostList.framework */,
+				8BE239443A98A1DA20F2D00B /* Pods_PostListTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -350,6 +394,25 @@
 			productReference = 1F9BC8652C6CF22F00E7D023 /* PostList.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1F9BC8C92C73700100E7D023 /* PostListTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F9BC8D02C73700200E7D023 /* Build configuration list for PBXNativeTarget "PostListTests" */;
+			buildPhases = (
+				7FD683BD218336F4FC373590 /* [CP] Check Pods Manifest.lock */,
+				1F9BC8C62C73700100E7D023 /* Sources */,
+				1F9BC8C72C73700100E7D023 /* Frameworks */,
+				1F9BC8C82C73700100E7D023 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F9BC8CF2C73700200E7D023 /* PBXTargetDependency */,
+			);
+			name = PostListTests;
+			productName = PostListTests;
+			productReference = 1F9BC8CA2C73700100E7D023 /* PostListTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -362,6 +425,10 @@
 				TargetAttributes = {
 					1F9BC8642C6CF22F00E7D023 = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					1F9BC8C92C73700100E7D023 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 1F9BC8642C6CF22F00E7D023;
 					};
 				};
 			};
@@ -379,6 +446,7 @@
 			projectRoot = "";
 			targets = (
 				1F9BC8642C6CF22F00E7D023 /* PostList */,
+				1F9BC8C92C73700100E7D023 /* PostListTests */,
 			);
 		};
 /* End PBXProject section */
@@ -394,6 +462,14 @@
 				1F9BC88C2C6CF31C00E7D023 /* MessageView.xib in Resources */,
 				1F9BC8752C6CF23200E7D023 /* Base in Resources */,
 				1F9BC8702C6CF22F00E7D023 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F9BC8C82C73700100E7D023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F9BC8DA2C73723900E7D023 /* PostList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +491,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PostList/Pods-PostList-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FD683BD218336F4FC373590 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PostListTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B88A639179281BAF13CED7C5 /* [CP] Check Pods Manifest.lock */ = {
@@ -472,7 +570,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1F9BC8C62C73700100E7D023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F9BC8D42C73702900E7D023 /* HomeViewModelTests.swift in Sources */,
+				1F9BC8D62C73709800E7D023 /* MockApiManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F9BC8CF2C73700200E7D023 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F9BC8642C6CF22F00E7D023 /* PostList */;
+			targetProxy = 1F9BC8CE2C73700200E7D023 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1F9BC86E2C6CF22F00E7D023 /* Main.storyboard */ = {
@@ -671,6 +786,44 @@
 			};
 			name = Release;
 		};
+		1F9BC8D12C73700200E7D023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB0C6CBE0C13A112F8D8E378 /* Pods-PostListTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.PostListTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PostList.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PostList";
+			};
+			name = Debug;
+		};
+		1F9BC8D22C73700200E7D023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8C175562F7CEF052293A508 /* Pods-PostListTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.PostListTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PostList.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PostList";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -688,6 +841,15 @@
 			buildConfigurations = (
 				1F9BC87A2C6CF23200E7D023 /* Debug */,
 				1F9BC87B2C6CF23200E7D023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F9BC8D02C73700200E7D023 /* Build configuration list for PBXNativeTarget "PostListTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F9BC8D12C73700200E7D023 /* Debug */,
+				1F9BC8D22C73700200E7D023 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

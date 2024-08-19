@@ -63,5 +63,15 @@ class HomeViewModel:BaseViewModel {
         })
         
     }
+    
+    func updateIsFavoriteStatus(_ post: ControlEvent<PostDetail>.Element) {
+        let realm = try! Realm()
+        let results = realm.objects(PostDetail.self).filter("id = \(post.id ?? 0)")
+        if let post = results.first {
+            try! realm.write {
+                post.isFavorite = !post.isFavorite
+            }
+        }
+    }
 }
 

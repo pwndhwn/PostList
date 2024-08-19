@@ -18,7 +18,6 @@ class LoginViewController : UIViewController {
         textField.placeholder = "Enter Email"
         textField.borderStyle = .roundedRect
         textField.keyboardType = .emailAddress
-        textField.text = "abc@gmail.com"
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -27,7 +26,6 @@ class LoginViewController : UIViewController {
         let textField = UITextField()
         textField.placeholder = "Enter Password"
         textField.borderStyle = .roundedRect
-        textField.text = "111111111"
         textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
