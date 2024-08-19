@@ -1,0 +1,1 @@
+<h1 align="center">List App</h1> <h3>About</h3> <p>The List app contains list of posts. User can mark then as favorite. It contains Login screen and a tab bar. Tab bar contains two tabs. The first one is post listing and the second one is favorite post listing. RxSwift is used to develop this app.</p> 
