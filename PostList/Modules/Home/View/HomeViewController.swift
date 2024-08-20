@@ -7,7 +7,6 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 import RealmSwift
 
 class HomeViewController: BaseViewController {

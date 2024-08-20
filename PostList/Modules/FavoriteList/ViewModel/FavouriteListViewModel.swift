@@ -7,7 +7,6 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
 import RealmSwift
 
 class FavouriteListViewModel:BaseViewModel {

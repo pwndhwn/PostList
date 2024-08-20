@@ -7,7 +7,6 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
 import UIKit
 
 class LoginViewModel  {
