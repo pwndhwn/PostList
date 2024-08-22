@@ -11,7 +11,13 @@ import RxCocoa
 import RealmSwift
 
 
+protocol HomeViewModelDelegate: AnyObject {
+    func updateList(list: [PostDetail])
+}
+
 class HomeViewModel:BaseViewModel {
+    
+    weak var delegate: HomeViewModelDelegate?
     
     public let postDetails : PublishSubject<[PostDetail]> = PublishSubject()
     
@@ -26,7 +32,11 @@ class HomeViewModel:BaseViewModel {
         let posts = realm.objects(PostDetail.self)
         let array = Array(posts)
         if array.count > 0 {
-            self.postDetails.onNext(array)
+            if let delegate = delegate {
+                delegate.updateList(list: array)
+            } else {
+                self.postDetails.onNext(array)
+            }
         } else {
             requestAllPostsFromServer()
         }

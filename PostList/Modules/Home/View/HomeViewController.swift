@@ -11,16 +11,25 @@ import RealmSwift
 
 class HomeViewController: BaseViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    private var isUsingRxSwift = true
+    @IBOutlet private weak var tableView: UITableView!
+    
+    private var list:[PostDetail]?
     
     override func viewDidLoad()
     {
         self.tabBarController?.navigationItem.hidesBackButton = true
         tableView.register( UINib(nibName: Constants.Cell_ID_PostListTableViewCell, bundle: nil), forCellReuseIdentifier: Constants.Cell_ID_PostListTableViewCell )
         viewModel = HomeViewModel(apiManager: APIManager())
+        if isUsingRxSwift {
+            setupBindings()
+        } else {
+            tableView.dataSource = self
+            tableView.delegate = self
+        }
         super.viewDidLoad()
-        setupBindings()
         guard let viewModel = viewModel as? HomeViewModel else { return }
+        viewModel.delegate = !isUsingRxSwift ? self : nil
         viewModel.requestAllPosts()
     }
     
@@ -56,4 +65,37 @@ class HomeViewController: BaseViewController {
     }
 }
 
+extension HomeViewController: HomeViewModelDelegate {
+    
+    func updateList(list: [PostDetail]) {
+        self.list = list
+        tableView.reloadData()
+    }
+}
 
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.list?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cell_ID_PostListTableViewCell) as! PostListTableViewCell
+        if let item = list?[indexPath.row] {
+            let cellViewModel = PostListCellViewModel(postDetail: item)
+            cell.viewModel = cellViewModel
+            cell.updateFavoriteStatus(isFavorite: item.isFavorite)
+        }
+        return cell;
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let viewModel = viewModel as? HomeViewModel else { return }
+        if let item = list?[indexPath.row] {
+            viewModel.updateIsFavoriteStatus(item)
+            tableView.reloadRows(at: [indexPath], with: .none)
+            
+        }        
+    }
+}
